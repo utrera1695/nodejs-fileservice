@@ -30,7 +30,7 @@ async function GetFile(req, res) {
 async function UploadFileBase64(req, res) {
   try {
     let base64 = req.body.base;
-    let imageTypeDetected = imageBuffer.type.match(/\/(.*?)$/);
+    let imageTypeDetected = base64.type.match(/\/(.*?)$/);
     let base64Image = base64.split(';base64,').pop();
     let randomPart = Math.random().toString(36).substr(2, 5);
     fs.writeFile(
