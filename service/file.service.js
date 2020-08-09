@@ -47,17 +47,17 @@ async function UploadFileBase64(req, res) {
     var imageBuffer = decodeBase64Image(base64);
     let imageTypeDetected = imageBuffer.type.match(/\/(.*?)$/);
     let randomPart = Math.random().toString(36).substr(2, 5);
+    let filename = 'file-' + randomPart + '.' + imageTypeDetected[1]
     fs.writeFile(
-      'file-' + randomPart + imageTypeDetected[1],
+      filename,
       imageBuffer.data,
       function () {
         res.status(200).send({
           url: req.protocol +
             '://' +
             req.get('host') +
-            '/fileapi/file/file-' +
-            randomPart +
-            imageTypeDetected[1],
+            '/fileapi/file/' +
+            filename,
         });
       }
     );
