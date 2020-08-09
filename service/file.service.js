@@ -51,7 +51,8 @@ async function UploadFileBase64(req, res) {
     fs.writeFile(
       filename,
       imageBuffer.data,
-      function () {
+      function (err) {
+        console.log(err)
         res.status(200).send({
           url: req.protocol +
             '://' +
