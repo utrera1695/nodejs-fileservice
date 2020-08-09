@@ -50,6 +50,7 @@ async function UploadFileBase64(req, res) {
       }
     );
   } catch (error) {
+    console.log(error)
     res.status(500).send({
       error: error,
     });
