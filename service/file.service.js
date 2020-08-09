@@ -44,7 +44,7 @@ function decodeBase64Image(dataString) {
 async function UploadFileBase64(req, res) {
   try {
     let base64 = req.body.base;
-    var imageBuffer = decodeBase64Image(base64Data);
+    var imageBuffer = decodeBase64Image(base64);
     let imageTypeDetected = imageBuffer.type.match(/\/(.*?)$/);
     let base64Image = base64.split(';base64,').pop();
     let randomPart = Math.random().toString(36).substr(2, 5);
