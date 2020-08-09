@@ -10,7 +10,6 @@ const storage = multer.diskStorage({
     cb(null, 'uploads/');
   },
   filename: function (req, file, cb) {
-    console.log(file);
     const randomPart = Math.random().toString(36).substr(2, 5); // use whatever random you want.
     const extension = file.mimetype.split('/')[1];
     cb(null, 'file-' + randomPart + `.${extension}`);

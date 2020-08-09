@@ -5,8 +5,7 @@ var fs = require('fs-extra');
 async function UploadSingleFile(req, res) {
   try {
     res.status(200).send({
-      url:
-        req.protocol +
+      url: req.protocol +
         '://' +
         req.get('host') +
         '/fileapi/file/' +
@@ -34,22 +33,22 @@ async function UploadFileBase64(req, res) {
     let imageTypeDetected = imageBuffer.type.match(/\/(.*?)$/);
     let base64Image = base64.split(';base64,').pop();
     let randomPart = Math.random().toString(36).substr(2, 5);
-    let file = await fs.writeFileSync(
+    fs.writeFile(
       'file-' + randomPart + imageTypeDetected[1],
-      base64Image,
-      { encoding: 'base64' }
+      base64Image, {
+        encoding: 'base64'
+      },
+      function () {
+        res.status(200).send({
+          url: req.protocol +
+            '://' +
+            req.get('host') +
+            '/fileapi/file/file-' +
+            randomPart +
+            imageTypeDetected[1],
+        });
+      }
     );
-    if (file) {
-      res.status(200).send({
-        url:
-          req.protocol +
-          '://' +
-          req.get('host') +
-          '/fileapi/file/file-' +
-          randomPart +
-          imageTypeDetected[1],
-      });
-    }
   } catch (error) {
     res.status(500).send({
       error: error,
