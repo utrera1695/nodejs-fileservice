@@ -21,7 +21,7 @@ var upload = multer({
 });
 
 api.post('/file/upload', upload.single('file'), FileService.UploadSingleFile);
-api.post('/file/upload/base64', FileService.UploadSingleFile);
-api.get('/file/:file', FileService.UploadFileBase64);
+api.post('/file/upload/base64', FileService.UploadFileBase64);
+api.get('/file/:file', FileService.GetFile);
 
 module.exports = api;
