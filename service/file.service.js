@@ -49,7 +49,7 @@ async function UploadFileBase64(req, res) {
     let randomPart = Math.random().toString(36).substr(2, 5);
     let filename = 'file-' + randomPart + '.' + imageTypeDetected[1]
     fs.writeFile(
-      filename,
+      'uploads/' + filename,
       imageBuffer.data,
       function (err) {
         console.log(err)
