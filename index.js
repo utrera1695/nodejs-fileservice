@@ -10,4 +10,5 @@ var sslOptions = {
 };
 /* var server = http.createServer(app);
 server.listen(port); */
+console.log(sslOptions)
 https.createServer(sslOptions, app).listen(port)
