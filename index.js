@@ -1,6 +1,6 @@
 'use strict';
 var http = require('http')
-https = require('https')
+var https = require('https')
 var app = require('./app');
 var port = process.env.PORT || 8000;
 var sslOptions = {
