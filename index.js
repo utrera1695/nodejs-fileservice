@@ -1,7 +1,12 @@
 'use strict';
 var http = require('http')
+https = require('https')
 var app = require('./app');
 var port = process.env.PORT || 8000;
-
-var server = http.createServer(app);
-server.listen(port);
+var sslOptions = {
+  key: fs.readFileSync('key.pem'),
+  cert: fs.readFileSync('cert.pem')
+};
+/* var server = http.createServer(app);
+server.listen(port); */
+https.createServer(sslOptions, app).listen(port)
