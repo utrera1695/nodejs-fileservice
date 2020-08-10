@@ -2,6 +2,7 @@
 var http = require('http')
 var https = require('https')
 var app = require('./app');
+var fs = require('fs-extra')
 var port = process.env.PORT || 8000;
 var sslOptions = {
   key: fs.readFileSync('key.pem'),
