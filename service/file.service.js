@@ -8,7 +8,7 @@ async function UploadSingleFile(req, res) {
       url: req.protocol +
         '://' +
         req.get('host') +
-        '/fileapi/file/' +
+        '/file/' +
         req.file.filename,
     });
   } catch (error) {
@@ -57,7 +57,7 @@ async function UploadFileBase64(req, res) {
           url: req.protocol +
             '://' +
             req.get('host') +
-            '/fileapi/file/' +
+            '/file/' +
             filename,
         });
       }

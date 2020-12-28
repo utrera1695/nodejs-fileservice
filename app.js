@@ -31,8 +31,8 @@ app.use((req, res, next) => {
 
 var FileController = require('./controller/file.controller');
 
-app.use('/fileapi', FileController);
-app.use('/fileapi', function (req, res) {
+app.use('/', FileController);
+app.use('/', function (req, res) {
   res.status(200).send({
     done: true,
   });
