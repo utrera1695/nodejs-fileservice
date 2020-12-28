@@ -32,7 +32,7 @@ app.use((req, res, next) => {
 var FileController = require('./controller/file.controller');
 
 app.use('/', FileController);
-app.use('/', function (req, res) {
+app.use('/test', function (req, res) {
   res.status(200).send({
     done: true,
   });
