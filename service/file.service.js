@@ -53,8 +53,7 @@ async function UploadFileBase64(req, res) {
       function (err) {
         console.log(err)
         res.status(200).send({
-          url: req.protocol +
-            '://' +
+          url: 'https://' +
             req.get('host') +
             '/file/' +
             filename,
