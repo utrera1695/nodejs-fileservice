@@ -5,8 +5,7 @@ var fs = require('fs-extra');
 async function UploadSingleFile(req, res) {
   try {
     res.status(200).send({
-      url: req.protocol +
-        '://' +
+      url: 'https://' +
         req.get('host') +
         '/file/' +
         req.file.filename,
